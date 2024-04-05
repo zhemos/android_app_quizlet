@@ -43,4 +43,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 quizlet-android-application = { id = "quizlet.android.application", version = "unspecified" }
 quizlet-android-library = { id = "quizlet.android.library", version = "unspecified" }
 quizlet-jvm-library = { id = "quizlet.jvm.library", version = "unspecified" }
+quizlet-dagger = { id = "quizlet.dagger", version = "unspecified" }
 

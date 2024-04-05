@@ -1,6 +1,7 @@
 plugins {
     id("com.google.devtools.ksp")
     alias(libs.plugins.quizlet.android.library)
+    alias(libs.plugins.quizlet.dagger)
 }
 
 android {

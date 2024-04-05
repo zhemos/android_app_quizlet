@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.quizlet.android.application)
+    alias(libs.plugins.quizlet.dagger)
 }
 
 android {
