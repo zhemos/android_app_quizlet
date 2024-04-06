@@ -35,9 +35,9 @@ gradlePlugin {
             id = "quizlet.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
         }
-        register("dagger") {
-            id = "quizlet.dagger"
-            implementationClass = "AndroidDaggerConventionPlugin"
+        register("androidHilt") {
+            id = "quizlet.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
         }
     }
 }
