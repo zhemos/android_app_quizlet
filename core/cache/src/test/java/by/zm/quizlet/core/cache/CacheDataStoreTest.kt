@@ -56,7 +56,7 @@ class CacheDataStoreTest {
 
     @Test
     fun insertTermVerifyTermDao() = runTest {
-        val term = TermItem(id = 1, term = "Term", translate = "Translate", moduleId = 1)
+        val term = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
         cacheDataStore.insertTerm(term)
         verify(termDao, atLeastOnce()).insertTerm(term)
     }
@@ -64,9 +64,9 @@ class CacheDataStoreTest {
     @Test
     fun insertTermsVerifyTermDao() = runTest {
         val terms = listOf(
-            TermItem(id = 1, term = "Term1", translate = "Translate1", moduleId = 1),
-            TermItem(id = 2, term = "Term2", translate = "Translate2", moduleId = 1),
-            TermItem(id = 3, term = "Term3", translate = "Translate3", moduleId = 1),
+            TermItem(id = 1, title = "Term1", translate = "Translate1", moduleId = 1),
+            TermItem(id = 2, title = "Term2", translate = "Translate2", moduleId = 1),
+            TermItem(id = 3, title = "Term3", translate = "Translate3", moduleId = 1),
         )
         cacheDataStore.insertTerms(terms)
         verify(termDao, atLeastOnce()).insertTerms(terms)
@@ -74,7 +74,7 @@ class CacheDataStoreTest {
 
     @Test
     fun deleteTermVerifyTermDao() = runTest {
-        val term = TermItem(id = 1, term = "Term", translate = "Translate", moduleId = 1)
+        val term = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
         cacheDataStore.deleteTerm(term)
         verify(termDao, atLeastOnce()).deleteTerm(term)
     }

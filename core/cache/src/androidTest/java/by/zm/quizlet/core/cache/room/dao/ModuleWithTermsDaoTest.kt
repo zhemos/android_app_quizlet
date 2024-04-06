@@ -61,7 +61,7 @@ class ModuleWithTermsDaoTest {
     @Test
     fun insertModuleWithTerms() = runTest {
         val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        val termItem = TermItem(id = 1, term = "Term", translate = "Translate", moduleId = 1)
+        val termItem = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
         moduleDao.insertModule(moduleItem)
         termDao.insertTerm(termItem)
 
@@ -76,7 +76,7 @@ class ModuleWithTermsDaoTest {
     @Test
     fun deleteModuleWithTerms() = runTest {
         val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        val termItem = TermItem(id = 1, term = "Term", translate = "Translate", moduleId = 1)
+        val termItem = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
         moduleDao.insertModule(moduleItem)
         termDao.insertTerm(termItem)
         moduleDao.deleteModule(moduleItem)

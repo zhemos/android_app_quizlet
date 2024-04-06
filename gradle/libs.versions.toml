@@ -13,7 +13,7 @@ jetbrainsKotlinJvm = "1.9.0"
 hilt = "2.49"
 hiltExt = "1.2.0"
 room = "2.6.1"
-kotlinxCoroutines = "1.7.3"
+kotlinxCoroutines = "1.8.0"
 ksp = "1.9.10-1.0.13"
 
 [libraries]
@@ -33,6 +33,7 @@ hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hi
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 

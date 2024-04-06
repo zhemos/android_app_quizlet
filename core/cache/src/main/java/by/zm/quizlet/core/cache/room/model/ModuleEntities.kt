@@ -18,10 +18,10 @@ data class ModuleItem(
 data class TermItem(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val term: String,
+    val title: String,
     val translate: String,
     val moduleId: Int,
-)
+) : Dto
 
 class ModuleWithTerms(
     @Embedded val module: ModuleItem,
@@ -30,4 +30,4 @@ class ModuleWithTerms(
         entityColumn = "moduleId",
     )
     val terms: List<TermItem>,
-)
+) : Dto
