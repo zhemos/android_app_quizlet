@@ -1,4 +1,5 @@
 import by.zm.quizlet.configureKotlinAndroid
+import by.zm.quizlet.libs
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -23,6 +24,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             add("testImplementation", project(":core:testing"))
             add("androidTestImplementation", kotlin("test"))
             add("androidTestImplementation", project(":core:testing"))
+            add("testImplementation", libs.findLibrary("mockito.core").get())
+            add("testImplementation", libs.findLibrary("mockito.kotlin").get())
+            add("androidTestImplementation", libs.findLibrary("mockito.core").get())
         }
     }
 }

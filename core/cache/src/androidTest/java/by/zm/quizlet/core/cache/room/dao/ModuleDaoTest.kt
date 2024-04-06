@@ -1,7 +1,5 @@
 package by.zm.quizlet.core.cache.room.dao
 
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import by.zm.quizlet.core.cache.room.AppDatabase
@@ -45,36 +43,36 @@ class ModuleDaoTest {
 
     @Test
     fun insertModule() = runTest {
-        val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        dao.insertModule(moduleItem)
+        val module = ModuleItem(id = 1, name = "Module1", description = "Desc1")
+        dao.insertModule(module)
 
         val modules = dao.observeAllModules().first()
 
-        assertEquals(true, modules.contains(moduleItem))
+        assertEquals(true, modules.contains(module))
     }
 
     @Test
     fun deleteModule() = runTest {
-        val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        dao.insertModule(moduleItem)
-        dao.deleteModule(moduleItem)
+        val module = ModuleItem(id = 1, name = "Module1", description = "Desc1")
+        dao.insertModule(module)
+        dao.deleteModule(module)
 
         val modules = dao.observeAllModules().first()
 
-        assertEquals(false, modules.contains(moduleItem))
+        assertEquals(false, modules.contains(module))
     }
 
     @Test
     fun updateModule() = runTest {
-        val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        dao.insertModule(moduleItem)
-        val newModuleItem = moduleItem.copy(name = "New module name")
-        dao.insertModule(newModuleItem)
+        val module = ModuleItem(id = 1, name = "Module1", description = "Desc1")
+        dao.insertModule(module)
+        val newModule = module.copy(name = "New module name")
+        dao.insertModule(newModule)
 
         val modules = dao.observeAllModules().first()
 
-        assertEquals(true, modules.contains(newModuleItem))
-        assertEquals(false, modules.contains(moduleItem))
+        assertEquals(true, modules.contains(newModule))
+        assertEquals(false, modules.contains(module))
         assertEquals(1, modules.size)
     }
 }

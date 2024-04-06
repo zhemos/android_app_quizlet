@@ -2,8 +2,9 @@ package by.zm.quizlet.core.cache.di
 
 import android.content.Context
 import androidx.room.Room
+import by.zm.quizlet.core.cache.CacheDataStore
+import by.zm.quizlet.core.cache.CacheDataStoreImpl
 import by.zm.quizlet.core.cache.room.AppDatabase
-import by.zm.quizlet.core.common.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,4 +26,15 @@ object TestAppModule {
         context = context,
         klass = AppDatabase::class.java,
     ).allowMainThreadQueries().build()
+
+    @Provides
+    @Singleton
+    @Named("test")
+    fun providesCacheDataStore(
+        @Named("test_db") appDatabase: AppDatabase,
+    ): CacheDataStore = CacheDataStoreImpl(
+        moduleDao = appDatabase.moduleDao(),
+        termDao = appDatabase.termDao(),
+        moduleWithTerms = appDatabase.moduleWithTerms(),
+    )
 }
