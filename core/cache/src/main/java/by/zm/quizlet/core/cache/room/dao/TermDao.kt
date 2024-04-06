@@ -20,6 +20,6 @@ interface TermDao {
     @Delete
     suspend fun deleteTerm(termItem: TermItem)
 
-    @Query("SELECT * FROM term_items")
-    fun observeAllTerms(): Flow<List<TermItem>>
+    @Query("SELECT * FROM term_items WHERE moduleId = :id")
+    fun observeAllTermsByModuleId(id: Int): Flow<List<TermItem>>
 }

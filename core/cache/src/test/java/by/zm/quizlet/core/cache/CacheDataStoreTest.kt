@@ -81,8 +81,8 @@ class CacheDataStoreTest {
 
     @Test
     fun observeAllTermsVerifyTermDao() {
-        cacheDataStore.observeAllTerms()
-        verify(termDao, atLeastOnce()).observeAllTerms()
+        cacheDataStore.observeAllTermsByModuleId(1)
+        verify(termDao, atLeastOnce()).observeAllTermsByModuleId(1)
     }
 
     @Test

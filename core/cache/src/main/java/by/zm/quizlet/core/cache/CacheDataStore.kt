@@ -22,7 +22,7 @@ interface CacheDataStore {
 
     suspend fun deleteTerm(term: TermItem)
 
-    fun observeAllTerms(): Flow<List<TermItem>>
+    fun observeAllTermsByModuleId(id: Int): Flow<List<TermItem>>
 
     fun observeAllModulesWithTerms(): Flow<List<ModuleWithTerms>>
 }
@@ -57,8 +57,8 @@ class CacheDataStoreImpl(
         termDao.deleteTerm(term)
     }
 
-    override fun observeAllTerms(): Flow<List<TermItem>> {
-        return termDao.observeAllTerms()
+    override fun observeAllTermsByModuleId(id: Int): Flow<List<TermItem>> {
+        return termDao.observeAllTermsByModuleId(id)
     }
 
     override fun observeAllModulesWithTerms(): Flow<List<ModuleWithTerms>> {

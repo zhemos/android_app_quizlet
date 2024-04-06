@@ -46,7 +46,7 @@ class TermDaoTest {
         val term = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
         dao.insertTerm(term)
 
-        val terms = dao.observeAllTerms().first()
+        val terms = dao.observeAllTermsByModuleId(1).first()
 
         assertEquals(true, terms.contains(term))
     }
@@ -60,7 +60,7 @@ class TermDaoTest {
         )
         dao.insertTerms(terms)
 
-        val allTerms = dao.observeAllTerms().first()
+        val allTerms = dao.observeAllTermsByModuleId(1).first()
 
         assertEquals(terms.size, allTerms.size)
         assertEquals(true, terms == allTerms)
@@ -72,7 +72,7 @@ class TermDaoTest {
         dao.insertTerm(term)
         dao.deleteTerm(term)
 
-        val terms = dao.observeAllTerms().first()
+        val terms = dao.observeAllTermsByModuleId(1).first()
 
         assertEquals(false, terms.contains(term))
     }
@@ -84,7 +84,7 @@ class TermDaoTest {
         val newTermItem = term.copy(translate = "New translate")
         dao.insertTerm(newTermItem)
 
-        val terms = dao.observeAllTerms().first()
+        val terms = dao.observeAllTermsByModuleId(1).first()
 
         assertEquals(true, terms.contains(newTermItem))
         assertEquals(false, terms.contains(term))
@@ -105,7 +105,7 @@ class TermDaoTest {
         )
         dao.insertTerms(newTerms)
 
-        val allTerms = dao.observeAllTerms().first()
+        val allTerms = dao.observeAllTermsByModuleId(1).first()
 
         assertEquals(terms.size, allTerms.size)
         assertEquals(terms.first(), allTerms.first())
