@@ -9,20 +9,19 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object TestAppModule {
+object CacheModule {
 
     @Provides
     @Singleton
-    @Named("test_db")
     fun providesAppDatabase(
         @ApplicationContext context: Context,
-    ): AppDatabase = Room.inMemoryDatabaseBuilder(
+    ): AppDatabase = Room.databaseBuilder(
         context = context,
         klass = AppDatabase::class.java,
-    ).allowMainThreadQueries().build()
+        name = Constants.DATABASE_NAME,
+    ).build()
 }

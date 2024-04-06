@@ -8,7 +8,7 @@ android {
     namespace = "by.zm.quizlet.core.cache"
 
     defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "by.zm.quizlet.core.testing.AppTestRunner"
     }
 }
 

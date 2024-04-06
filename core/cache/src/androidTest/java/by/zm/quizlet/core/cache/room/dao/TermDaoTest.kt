@@ -1,32 +1,38 @@
 package by.zm.quizlet.core.cache.room.dao
 
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import by.zm.quizlet.core.cache.room.AppDatabase
 import by.zm.quizlet.core.cache.room.model.TermItem
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import javax.inject.Inject
+import javax.inject.Named
 import kotlin.test.assertEquals
 
 @RunWith(AndroidJUnit4::class)
 @SmallTest
+@HiltAndroidTest
 class TermDaoTest {
 
-    private lateinit var database: AppDatabase
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
+
+    @Inject
+    @Named("test_db")
+    lateinit var database: AppDatabase
     private lateinit var dao: TermDao
 
     @Before
     fun setup() {
-        database = Room.inMemoryDatabaseBuilder(
-            context = ApplicationProvider.getApplicationContext(),
-            klass = AppDatabase::class.java,
-        ).allowMainThreadQueries().build()
+        hiltRule.inject()
         dao = database.termDao()
     }
 
