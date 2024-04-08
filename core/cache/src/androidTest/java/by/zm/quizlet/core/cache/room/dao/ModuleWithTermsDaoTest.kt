@@ -48,39 +48,39 @@ class ModuleWithTermsDaoTest {
 
     @Test
     fun insertModuleItemWithoutTerms() = runTest {
-        val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        moduleDao.insertModule(moduleItem)
+        val module = ModuleItem(id = 1, name = "Module1", description = "Desc1")
+        moduleDao.insertModule(module)
 
         val modules = dao.observeAllModulesWithTerms().first()
 
         assertEquals(1, modules.size)
-        assertEquals(moduleItem, modules.first().module)
+        assertEquals(module, modules.first().module)
         assertEquals(0, modules.first().terms.size)
     }
 
     @Test
     fun insertModuleWithTerms() = runTest {
-        val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        val termItem = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
-        moduleDao.insertModule(moduleItem)
-        termDao.insertTerm(termItem)
+        val module = ModuleItem(id = 1, name = "Module1", description = "Desc1")
+        val term = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
+        moduleDao.insertModule(module)
+        termDao.insertTerm(term)
 
         val modules = dao.observeAllModulesWithTerms().first()
 
         assertEquals(1, modules.size)
-        assertEquals(moduleItem, modules.first().module)
+        assertEquals(module, modules.first().module)
         assertEquals(1, modules.first().terms.size)
-        assertEquals(termItem, modules.first().terms.first())
+        assertEquals(term, modules.first().terms.first())
     }
 
     @Test
     fun deleteModuleWithTerms() = runTest {
-        val moduleItem = ModuleItem(id = 1, name = "Module1", description = "Desc1")
-        val termItem = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
-        moduleDao.insertModule(moduleItem)
-        termDao.insertTerm(termItem)
-        moduleDao.deleteModule(moduleItem)
-        termDao.deleteTerm(termItem)
+        val module = ModuleItem(id = 1, name = "Module1", description = "Desc1")
+        val term = TermItem(id = 1, title = "Term", translate = "Translate", moduleId = 1)
+        moduleDao.insertModule(module)
+        termDao.insertTerm(term)
+        moduleDao.deleteModule(module)
+        termDao.deleteTerm(term)
 
         val modules = dao.observeAllModulesWithTerms().first()
 
