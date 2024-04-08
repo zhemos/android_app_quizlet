@@ -11,7 +11,7 @@ data class ModuleItem(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     val name: String,
-    val description: String? = null,
+    val description: String,
 ) : Dto
 
 @Entity(tableName = "term_items")
@@ -20,6 +20,8 @@ data class TermItem(
     val id: Int? = null,
     val title: String,
     val translate: String,
+    val imageUrl: String,
+    val isFavourites: Boolean,
     val moduleId: Int,
 ) : Dto
 
