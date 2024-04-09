@@ -5,6 +5,10 @@ plugins {
 
 android {
     namespace = "by.zm.quizlet.core.data"
+
+    defaultConfig {
+        testInstrumentationRunner = "by.zm.quizlet.core.testing.AppTestRunner"
+    }
 }
 
 dependencies {

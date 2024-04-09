@@ -5,6 +5,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface ModulesRepository {
 
+    val test: String get() = "test"
+
     val modules: Flow<List<Module>>
 
     suspend fun insertModule(module: Module)
