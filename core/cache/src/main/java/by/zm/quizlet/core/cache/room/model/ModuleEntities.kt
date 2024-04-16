@@ -25,7 +25,7 @@ data class TermItem(
     val moduleId: Int,
 ) : Dto
 
-class ModuleWithTerms(
+data class ModuleWithTerms(
     @Embedded val module: ModuleItem,
     @Relation(
         parentColumn = "id",
