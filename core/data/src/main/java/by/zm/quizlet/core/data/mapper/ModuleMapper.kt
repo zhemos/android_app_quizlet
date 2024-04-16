@@ -4,8 +4,9 @@ import by.zm.quizlet.core.cache.room.model.ModuleItem
 import by.zm.quizlet.core.cache.room.model.ModuleWithTerms
 import by.zm.quizlet.core.common.model.Mapper
 import by.zm.quizlet.core.domain.model.Module
+import javax.inject.Inject
 
-class ModuleMapper : Mapper<ModuleWithTerms, Module> {
+class ModuleMapper @Inject constructor() : Mapper<ModuleWithTerms, Module> {
 
     override fun mapToDomain(input: ModuleWithTerms): Module = with(input) {
         val moduleId = module.id ?: 0

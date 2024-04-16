@@ -4,7 +4,7 @@ import by.zm.quizlet.core.cache.room.dao.TermDao
 import by.zm.quizlet.core.cache.room.model.TermItem
 import kotlinx.coroutines.flow.Flow
 
-class TestTermDao : TermDao {
+class TestTermDao : TestDatabase(), TermDao {
     override suspend fun insertTerm(term: TermItem) {
         TODO("Not yet implemented")
     }

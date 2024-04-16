@@ -4,7 +4,7 @@ import by.zm.quizlet.core.cache.room.dao.ModuleDao
 import by.zm.quizlet.core.cache.room.model.ModuleItem
 import kotlinx.coroutines.flow.Flow
 
-class TestModuleDao : ModuleDao {
+class TestModuleDao : TestDatabase(), ModuleDao {
 
     override suspend fun insertModule(module: ModuleItem) {
         TODO("Not yet implemented")

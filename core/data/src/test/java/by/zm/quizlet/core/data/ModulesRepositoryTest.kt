@@ -2,6 +2,7 @@ package by.zm.quizlet.core.data
 
 import by.zm.quizlet.core.cache.CacheDataStore
 import by.zm.quizlet.core.cache.CacheDataStoreImpl
+import by.zm.quizlet.core.data.mapper.ModuleMapper
 import by.zm.quizlet.core.data.tests.TestModuleDao
 import by.zm.quizlet.core.data.tests.TestModuleWithTermsDao
 import by.zm.quizlet.core.data.tests.TestTermDao
@@ -17,6 +18,7 @@ class ModulesRepositoryTest {
 
     private lateinit var modulesRepository: ModulesRepository
     private lateinit var cacheDataStore: CacheDataStore
+    private lateinit var moduleMapper: ModuleMapper
 
     @Before
     fun setup() {
@@ -25,8 +27,10 @@ class ModulesRepositoryTest {
             termDao = TestTermDao(),
             moduleWithTerms = TestModuleWithTermsDao(),
         )
+        moduleMapper = ModuleMapper()
         modulesRepository = ModulesRepositoryImpl(
-            cacheDataStore = cacheDataStore
+            cacheDataStore = cacheDataStore,
+            moduleMapper = moduleMapper,
         )
     }
 
