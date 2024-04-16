@@ -2,6 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="AppActivity">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\zhemo\.android\avd\Pixel_8_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-15T15:58:55.956733200Z" />
+        </State>
+      </entry>
       <entry key="ModuleDaoTest">
         <State />
       </entry>
@@ -13,13 +29,16 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\zhemo\.android\avd\Galaxy_Nexus_API_30.avd" />
+                  <value value="C:\Users\zhemo\.android\avd\Pixel_8_API_33.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-13T20:42:30.160811600Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-15T15:40:03.673194Z" />
         </State>
+      </entry>
+      <entry key="test()">
+        <State />
       </entry>
       <entry key="updateModule()">
         <State>
