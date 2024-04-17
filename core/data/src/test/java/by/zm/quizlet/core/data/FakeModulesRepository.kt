@@ -2,8 +2,10 @@ package by.zm.quizlet.core.data
 
 import by.zm.quizlet.core.domain.ModulesRepository
 import by.zm.quizlet.core.domain.model.Module
+import by.zm.quizlet.core.domain.model.Term
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flowOf
 
 class FakeModulesRepository : ModulesRepository {
 
@@ -16,6 +18,10 @@ class FakeModulesRepository : ModulesRepository {
     }
 
     override val modules: Flow<List<Module>> get() = observableModules
+
+    override fun observeAllTermsByModuleId(id: Int): Flow<List<Term>> {
+        return flowOf()
+    }
 
     override suspend fun insertModule(module: Module) {
         fakeModules.add(module)

@@ -3,6 +3,7 @@ package by.zm.quizlet.core.data
 import by.zm.quizlet.core.cache.CacheDataStore
 import by.zm.quizlet.core.cache.CacheDataStoreImpl
 import by.zm.quizlet.core.data.mapper.ModuleMapper
+import by.zm.quizlet.core.data.mapper.ModuleWithTermsMapper
 import by.zm.quizlet.core.data.tests.TestModuleDao
 import by.zm.quizlet.core.data.tests.TestModuleWithTermsDao
 import by.zm.quizlet.core.data.tests.TestTermDao
@@ -11,6 +12,7 @@ import by.zm.quizlet.core.domain.model.Module
 import by.zm.quizlet.core.domain.model.Term
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
@@ -19,6 +21,7 @@ class ModulesRepositoryTest {
     private lateinit var modulesRepository: ModulesRepository
     private lateinit var cacheDataStore: CacheDataStore
     private lateinit var moduleMapper: ModuleMapper
+    private lateinit var moduleWithTermsMapper: ModuleWithTermsMapper
 
     @Before
     fun setup() {
@@ -27,10 +30,12 @@ class ModulesRepositoryTest {
             termDao = TestTermDao(),
             moduleWithTerms = TestModuleWithTermsDao(),
         )
+        moduleWithTermsMapper = ModuleWithTermsMapper()
         moduleMapper = ModuleMapper()
         modulesRepository = ModulesRepositoryImpl(
             cacheDataStore = cacheDataStore,
             moduleMapper = moduleMapper,
+            moduleWithTermsMapper = moduleWithTermsMapper,
         )
     }
 
@@ -46,10 +51,10 @@ class ModulesRepositoryTest {
         modulesRepository.insertModule(module)
 
         val modules = modulesRepository.modules.first()
-        kotlin.test.assertEquals(1, modules.size)
-        kotlin.test.assertEquals(module, modules.first())
-        kotlin.test.assertEquals(terms.size, modules.first().terms.size)
-        kotlin.test.assertEquals(terms.first(), modules.first().terms.first())
+        assertEquals(1, modules.size)
+        assertEquals(module, modules.first())
+        assertEquals(terms.size, modules.first().terms.size)
+        assertEquals(terms.first(), modules.first().terms.first())
     }
 
     @Test
@@ -69,10 +74,11 @@ class ModulesRepositoryTest {
         modulesRepository.updateModule(newModule)
 
         val modules = modulesRepository.modules.first()
-        kotlin.test.assertEquals(1, modules.size)
-        kotlin.test.assertEquals(newModule, modules.first())
-        kotlin.test.assertEquals(newTerms.size, modules.first().terms.size)
-        kotlin.test.assertEquals(newTerms.first(), modules.first().terms.first())
+        assertEquals(1, modules.size)
+        assertEquals(newModule, modules.first())
+        assertEquals(newTerms.size, modules.first().terms.size)
+        assertEquals(newTerms.first(), modules.first().terms.first())
+        println(modules.first().terms)
     }
 
     @Test
@@ -88,6 +94,8 @@ class ModulesRepositoryTest {
         modulesRepository.deleteModule(module)
 
         val modules = modulesRepository.modules.first()
-        kotlin.test.assertEquals(0, modules.size)
+        val actualTerms = modulesRepository.observeAllTermsByModuleId(id = 1).first()
+        assertEquals(0, modules.size)
+        assertEquals(0, actualTerms.size)
     }
 }
