@@ -39,5 +39,9 @@ gradlePlugin {
             id = "quizlet.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+        register("androidFeature") {
+            id = "quizlet.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
     }
 }

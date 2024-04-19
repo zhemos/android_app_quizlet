@@ -15,6 +15,8 @@ hiltExt = "1.2.0"
 room = "2.6.1"
 kotlinxCoroutines = "1.8.0"
 ksp = "1.9.10-1.0.13"
+fragmentKtx = "1.6.2"
+navigation = "2.7.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +38,9 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -54,4 +59,5 @@ quizlet-android-application = { id = "quizlet.android.application", version = "u
 quizlet-android-library = { id = "quizlet.android.library", version = "unspecified" }
 quizlet-jvm-library = { id = "quizlet.jvm.library", version = "unspecified" }
 quizlet-android-hilt = { id = "quizlet.android.hilt", version = "unspecified" }
+quizlet-android-feature = { id = "quizlet.android.feature", version = "unspecified" }
 
