@@ -1,34 +1,34 @@
 package by.zm.quizlet.core.data
 
 import by.zm.quizlet.core.domain.ModulesRepository
-import by.zm.quizlet.core.domain.model.Module
-import by.zm.quizlet.core.domain.model.Term
+import by.zm.quizlet.core.model.Module
+import by.zm.quizlet.core.model.Term
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 
 class FakeModulesRepository : ModulesRepository {
 
-    private val fakeModules = mutableListOf<Module>()
+    private val fakeModules = mutableListOf<by.zm.quizlet.core.model.Module>()
 
-    private val observableModules = MutableStateFlow<List<Module>>(fakeModules)
+    private val observableModules = MutableStateFlow<List<by.zm.quizlet.core.model.Module>>(fakeModules)
 
     private suspend fun refresh() {
         observableModules.emit(fakeModules)
     }
 
-    override val modules: Flow<List<Module>> get() = observableModules
+    override val modules: Flow<List<by.zm.quizlet.core.model.Module>> get() = observableModules
 
-    override fun observeAllTermsByModuleId(id: Int): Flow<List<Term>> {
+    override fun observeAllTermsByModuleId(id: Int): Flow<List<by.zm.quizlet.core.model.Term>> {
         return flowOf()
     }
 
-    override suspend fun insertModule(module: Module) {
+    override suspend fun insertModule(module: by.zm.quizlet.core.model.Module) {
         fakeModules.add(module)
         refresh()
     }
 
-    override suspend fun updateModule(module: Module) {
+    override suspend fun updateModule(module: by.zm.quizlet.core.model.Module) {
         val foundModule = fakeModules.find { it.id == module.id } ?: return
         val index = fakeModules.indexOf(foundModule)
         if (index == -1) return
@@ -37,7 +37,7 @@ class FakeModulesRepository : ModulesRepository {
         refresh()
     }
 
-    override suspend fun deleteModule(module: Module) {
+    override suspend fun deleteModule(module: by.zm.quizlet.core.model.Module) {
         fakeModules.remove(module)
         refresh()
     }

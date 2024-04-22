@@ -1,4 +1,4 @@
-package by.zm.quizlet.core.domain.model
+package by.zm.quizlet.core.model
 
 data class Term(
     val id: Int,
@@ -6,4 +6,4 @@ data class Term(
     val translate: String,
     val imageUrl: String,
     val isFavourites: Boolean,
-)
+) : Domain

@@ -1,6 +1,8 @@
 package by.zm.quizlet.core.common.model
 
-interface Mapper<DTO : Dto, DOMAIN> {
+import by.zm.quizlet.core.model.Domain
+
+interface Mapper<DTO : Dto, DOMAIN : Domain> {
 
     fun mapToDomain(input: DTO): DOMAIN
 

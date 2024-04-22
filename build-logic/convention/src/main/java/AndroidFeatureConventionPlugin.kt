@@ -1,4 +1,3 @@
-import by.zm.quizlet.libs
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,23 +15,22 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             defaultConfig {
                 testInstrumentationRunner = "by.zm.quizlet.core.testing.AppTestRunner"
             }
+            buildFeatures {
+                viewBinding = true
+            }
         }
         dependencies {
-            //add("implementation", project(":core:ui"))
-            //add("implementation", project(":core:designsystem"))
-            add("implementation", project(":core:data"))
             add("implementation", project(":core:common"))
+            add("implementation", project(":core:designsystem"))
+            add("implementation", project(":core:ui"))
+            add("implementation", project(":core:data"))
             add("implementation", project(":core:domain"))
+            add("implementation", project(":core:model"))
 
             add("testImplementation", kotlin("test"))
             add("testImplementation", project(":core:testing"))
             add("androidTestImplementation", kotlin("test"))
             add("androidTestImplementation", project(":core:testing"))
-
-            add("implementation", libs.findLibrary("androidx.core.ktx").get())
-            add("implementation", libs.findLibrary("androidx.appcompat").get())
-            add("implementation", libs.findLibrary("androidx.fragment.ktx").get())
-            add("implementation", libs.findLibrary("material").get())
         }
     }
 }

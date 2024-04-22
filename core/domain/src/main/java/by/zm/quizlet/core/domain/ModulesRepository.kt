@@ -1,7 +1,7 @@
 package by.zm.quizlet.core.domain
 
-import by.zm.quizlet.core.domain.model.Module
-import by.zm.quizlet.core.domain.model.Term
+import by.zm.quizlet.core.model.Module
+import by.zm.quizlet.core.model.Term
 import kotlinx.coroutines.flow.Flow
 
 interface ModulesRepository {

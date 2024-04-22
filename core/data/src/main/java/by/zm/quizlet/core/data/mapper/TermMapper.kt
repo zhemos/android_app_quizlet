@@ -2,7 +2,7 @@ package by.zm.quizlet.core.data.mapper
 
 import by.zm.quizlet.core.cache.room.model.TermItem
 import by.zm.quizlet.core.common.model.Mapper
-import by.zm.quizlet.core.domain.model.Term
+import by.zm.quizlet.core.model.Term
 
 class TermMapper(
     private val moduleId: Int,

@@ -24,8 +24,12 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "QuizletApp"
 include(":app")
 include(":core:common")
+include(":core:designsystem")
+include(":core:ui")
 include(":core:testing")
 include(":core:data")
 include(":core:cache")
 include(":core:domain")
+include(":core:model")
+
 include(":feature:modules")

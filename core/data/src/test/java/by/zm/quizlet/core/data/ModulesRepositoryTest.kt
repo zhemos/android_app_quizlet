@@ -8,8 +8,8 @@ import by.zm.quizlet.core.data.tests.TestModuleDao
 import by.zm.quizlet.core.data.tests.TestModuleWithTermsDao
 import by.zm.quizlet.core.data.tests.TestTermDao
 import by.zm.quizlet.core.domain.ModulesRepository
-import by.zm.quizlet.core.domain.model.Module
-import by.zm.quizlet.core.domain.model.Term
+import by.zm.quizlet.core.model.Module
+import by.zm.quizlet.core.model.Term
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -42,11 +42,34 @@ class ModulesRepositoryTest {
     @Test
     fun insertModule() = runTest {
         val terms = listOf(
-            Term(id = 1, title = "title1", translate = "tr1", imageUrl = "", isFavourites = false),
-            Term(id = 2, title = "title2", translate = "tr2", imageUrl = "", isFavourites = false),
-            Term(id = 3, title = "title3", translate = "tr3", imageUrl = "", isFavourites = false),
+            by.zm.quizlet.core.model.Term(
+                id = 1,
+                title = "title1",
+                translate = "tr1",
+                imageUrl = "",
+                isFavourites = false
+            ),
+            by.zm.quizlet.core.model.Term(
+                id = 2,
+                title = "title2",
+                translate = "tr2",
+                imageUrl = "",
+                isFavourites = false
+            ),
+            by.zm.quizlet.core.model.Term(
+                id = 3,
+                title = "title3",
+                translate = "tr3",
+                imageUrl = "",
+                isFavourites = false
+            ),
         )
-        val module = Module(id = 1, name = "module1", description = "desc1", terms = terms)
+        val module = by.zm.quizlet.core.model.Module(
+            id = 1,
+            name = "module1",
+            description = "desc1",
+            terms = terms
+        )
 
         modulesRepository.insertModule(module)
 
@@ -60,17 +83,51 @@ class ModulesRepositoryTest {
     @Test
     fun updateModule() = runTest {
         val terms = listOf(
-            Term(id = 1, title = "title1", translate = "tr1", imageUrl = "", isFavourites = false),
-            Term(id = 2, title = "title2", translate = "tr2", imageUrl = "", isFavourites = false),
-            Term(id = 3, title = "title3", translate = "tr3", imageUrl = "", isFavourites = false),
+            by.zm.quizlet.core.model.Term(
+                id = 1,
+                title = "title1",
+                translate = "tr1",
+                imageUrl = "",
+                isFavourites = false
+            ),
+            by.zm.quizlet.core.model.Term(
+                id = 2,
+                title = "title2",
+                translate = "tr2",
+                imageUrl = "",
+                isFavourites = false
+            ),
+            by.zm.quizlet.core.model.Term(
+                id = 3,
+                title = "title3",
+                translate = "tr3",
+                imageUrl = "",
+                isFavourites = false
+            ),
         )
-        val module = Module(id = 1, name = "module1", description = "desc1", terms = terms)
+        val module = by.zm.quizlet.core.model.Module(
+            id = 1,
+            name = "module1",
+            description = "desc1",
+            terms = terms
+        )
 
         modulesRepository.insertModule(module)
         val newTerms = listOf(
-            Term(id = 1, title = "new title", translate = "tr1", imageUrl = "", isFavourites = false),
+            by.zm.quizlet.core.model.Term(
+                id = 1,
+                title = "new title",
+                translate = "tr1",
+                imageUrl = "",
+                isFavourites = false
+            ),
         )
-        val newModule = Module(id = 1, name = "new module", description = "desc1", terms = newTerms)
+        val newModule = by.zm.quizlet.core.model.Module(
+            id = 1,
+            name = "new module",
+            description = "desc1",
+            terms = newTerms
+        )
         modulesRepository.updateModule(newModule)
 
         val modules = modulesRepository.modules.first()
@@ -84,11 +141,34 @@ class ModulesRepositoryTest {
     @Test
     fun deleteModule() = runTest {
         val terms = listOf(
-            Term(id = 1, title = "title1", translate = "tr1", imageUrl = "", isFavourites = false),
-            Term(id = 2, title = "title2", translate = "tr2", imageUrl = "", isFavourites = false),
-            Term(id = 3, title = "title3", translate = "tr3", imageUrl = "", isFavourites = false),
+            by.zm.quizlet.core.model.Term(
+                id = 1,
+                title = "title1",
+                translate = "tr1",
+                imageUrl = "",
+                isFavourites = false
+            ),
+            by.zm.quizlet.core.model.Term(
+                id = 2,
+                title = "title2",
+                translate = "tr2",
+                imageUrl = "",
+                isFavourites = false
+            ),
+            by.zm.quizlet.core.model.Term(
+                id = 3,
+                title = "title3",
+                translate = "tr3",
+                imageUrl = "",
+                isFavourites = false
+            ),
         )
-        val module = Module(id = 1, name = "module1", description = "desc1", terms = terms)
+        val module = by.zm.quizlet.core.model.Module(
+            id = 1,
+            name = "module1",
+            description = "desc1",
+            terms = terms
+        )
 
         modulesRepository.insertModule(module)
         modulesRepository.deleteModule(module)

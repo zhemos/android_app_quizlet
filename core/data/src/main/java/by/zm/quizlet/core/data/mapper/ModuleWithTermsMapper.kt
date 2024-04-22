@@ -3,7 +3,7 @@ package by.zm.quizlet.core.data.mapper
 import by.zm.quizlet.core.cache.room.model.ModuleItem
 import by.zm.quizlet.core.cache.room.model.ModuleWithTerms
 import by.zm.quizlet.core.common.model.Mapper
-import by.zm.quizlet.core.domain.model.Module
+import by.zm.quizlet.core.model.Module
 import javax.inject.Inject
 
 class ModuleWithTermsMapper @Inject constructor() : Mapper<ModuleWithTerms, Module> {

@@ -1,9 +1,9 @@
 package by.zm.quizlet.core.domain.usecases
 
 import by.zm.quizlet.core.domain.ModulesRepository
+import by.zm.quizlet.core.model.Module
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
-import by.zm.quizlet.core.domain.model.Module
 import kotlinx.coroutines.flow.flowOf
 
 class GetModulesUseCase @Inject constructor(

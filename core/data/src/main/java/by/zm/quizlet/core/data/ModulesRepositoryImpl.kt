@@ -5,8 +5,8 @@ import by.zm.quizlet.core.data.mapper.ModuleMapper
 import by.zm.quizlet.core.data.mapper.ModuleWithTermsMapper
 import by.zm.quizlet.core.data.mapper.TermMapper
 import by.zm.quizlet.core.domain.ModulesRepository
-import by.zm.quizlet.core.domain.model.Module
-import by.zm.quizlet.core.domain.model.Term
+import by.zm.quizlet.core.model.Module
+import by.zm.quizlet.core.model.Term
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -20,9 +20,9 @@ class ModulesRepositoryImpl @Inject constructor(
 
     override val modules: Flow<List<Module>>
         get() = cacheDataStore.observeAllModulesWithTerms()
-        .map {
-            moduleWithTermsMapper.mapToDomain(it)
-        }
+            .map {
+                moduleWithTermsMapper.mapToDomain(it)
+            }
 
     override fun observeAllTermsByModuleId(id: Int): Flow<List<Term>> {
         val termMapper = TermMapper(id)

@@ -27,8 +27,11 @@ android {
 
 dependencies {
     implementation(projects.core.common)
+    implementation(projects.core.designsystem)
+    implementation(projects.core.ui)
     implementation(projects.core.data)
     implementation(projects.core.domain)
+    implementation(projects.core.model)
 
     implementation(projects.feature.modules)
 

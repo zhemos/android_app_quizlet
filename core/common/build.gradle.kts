@@ -6,4 +6,6 @@ android {
     namespace = "by.zm.quizlet.core.common"
 }
 
-dependencies {}
+dependencies {
+    implementation(projects.core.model)
+}
