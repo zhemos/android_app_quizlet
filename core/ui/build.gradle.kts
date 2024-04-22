@@ -12,6 +12,7 @@ android {
 
 dependencies {
     implementation(projects.core.common)
+    implementation(projects.core.designsystem)
 
     api(libs.androidx.core.ktx)
     api(libs.androidx.appcompat)

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ToolbarView">
+        <attr name="title" />
+        <attr name="isBack" format="boolean" />
+        <attr name="extraImage" format="reference" />
+    </declare-styleable>
+</resources>
